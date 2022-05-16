@@ -32,7 +32,7 @@ export async function getStaticProps() {
         image: meetup.image,
       })),
     },
-    // revaildate: 10, // 몇초에 한번씩 로드할지
+    revaildate: 1, // 몇초에 한번씩 로드할지
   };
 }
 
