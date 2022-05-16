@@ -32,16 +32,29 @@ export async function getStaticProps() {
         image: meetup.image,
       })),
     },
-    revaildate: 1, // 몇초에 한번씩 로드할지
+    revalidate: 1, // 몇초에 한번씩 로드할지
   };
 }
 
-// export async function getServerSideProps(context) {
-//   const req = context.req;
-//   const res = context.res;
+// export async function getServerSideProps() {
+//   const client = await MongoClient.connect(
+//     'mongodb+srv://jisu:ZiOxiIRQFPTbGAJv@cluster0.dor0l.mongodb.net/meetupApp?retryWrites=true&w=majority'
+//   );
+//   const db = client.db();
+//   const meetupsCollection = db.collection('meetups');
+
+//   const meetups = await meetupsCollection.find().toArray();
+
+//   client.close();
+
 //   return {
 //     props: {
-//       meetups: DUMMY_MEETUPS,
+//       meetups: meetups.map((meetup) => ({
+//         id: meetup._id.toString(),
+//         title: meetup.title,
+//         address: meetup.address,
+//         image: meetup.image,
+//       })),
 //     },
 //   };
 // }

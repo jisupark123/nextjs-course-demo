@@ -12,7 +12,6 @@ function NewMeetUpPage() {
       body: JSON.stringify(enteredMeetupData),
     });
     const data = await response.json();
-    console.log(data);
 
     router.push('/');
   }
