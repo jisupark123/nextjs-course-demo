@@ -29,7 +29,10 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false,
+    // false - 지정된 경로만 반환 - 프로젝트가 빌드될 때 기준이므로 배포 이후에 오류가 생김
+    // true - 일단 빈 페이지를 반환한 다음 동적으로 생성된 페이지를 띄움 (중간 처리 필요)
+    // blocking - 페이지를 다 생성한 다음 반환
+    fallback: 'blocking',
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
